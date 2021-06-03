@@ -39,22 +39,20 @@ int main(void) {
   }
 }
 
-float mc_pi(int n) {
-  int points_in_circle=0;
-  int points_out_circle=0;
-  int points_in_square=0;
-  for(int i=1;i<=n;i++){
-    float x=frandom();
-    float y=frandom();
-    if ((x*x)+(y*y)<=1.0) {
-      points_in_circle+=1;
-    }
-    else {
-      points_out_circle+=1;
-    }
-  }
-  points_in_square=points_in_square+points_out_circle;
-  float ratio=(float)points_in_circle/points_in_square;
-  return ratio*4; 
+float mc_pi(int n)
+{	
+	int pc=0,ps=n;
+	
+	for(int i=0; i<n; i++){
+	float x,y,len;
+	x=frandom();
+	y=frandom();
+	len =x*x+y*y;
+	if(len<=1){
+	pc++;
+	}
+	}
+	float pi = 4.0*pc/ps;
+	return pi;
 }
 
