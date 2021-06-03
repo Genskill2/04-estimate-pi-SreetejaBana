@@ -38,21 +38,17 @@ int main(void) {
     }
   }
 }
-
-float mc_pi(int n)
-{	
-	int pc=0,ps=n;
-	
-	for(int i=0; i<n; i++){
-	float x,y,len;
-	x=frandom();
-	y=frandom();
-	len =x*x+y*y;
-	if(len<=1){
-	pc++;
-	}
-	}
-	float pi = 4.0*pc/ps;
-	return pi;
+float mc_pi(int a){
+    float count=0;
+    for(int i=0;i<a;i++){
+        float x=frandom();
+        float y=frandom();
+        float d=sqrt(pow(x,2)+pow(y,2));
+        if(d<1){
+            count++;
+        }
+    }
+    float k = 4*count/a;
+    return k;
 }
 
